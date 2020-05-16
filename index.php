@@ -2,7 +2,6 @@
     require_once("config/config.php");
     $tempo = new HG_API(HG_API_KEY, WOEID);
     $previsao = $tempo->weather_query();
-    print_r($previsao);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +14,49 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
+            <header>Previsão do tempo para Córrego Fundo - MG</header>
+            <div class="col-2">
+                <h1><?=$previsao[0]["weekday"]?></h1>
+                <h2><?=$previsao[0]["date"]?></h2>
+                <p>Temp. Máx = <?=$previsao[0]["max"]?>°C</p>
+                <p>Temp. Mín = <?=$previsao[0]["min"]?>°C</p>
+                <p><?=$previsao[0]["description"]?></p>
+            </div>
+            <div class="col-2">
+                <h1><?=$previsao[1]["weekday"]?></h1>
+                <h2><?=$previsao[1]["date"]?></h2>
+                <p>Temp. Máx = <?=$previsao[1]["max"]?>°C</p>
+                <p>Temp. Mín = <?=$previsao[1]["min"]?>°C</p>
+                <p><?=$previsao[1]["description"]?></p>
+            </div>
+            <div class="col-2">
+                <h1><?=$previsao[2]["weekday"]?></h1>
+                <h2><?=$previsao[2]["date"]?></h2>
+                <p>Temp. Máx = <?=$previsao[2]["max"]?>°C</p>
+                <p>Temp. Mín = <?=$previsao[2]["min"]?>°C</p>
+                <p><?=$previsao[2]["description"]?></p>
+            </div>
+            <div class="col-2">
+                <h1><?=$previsao[3]["weekday"]?></h1>
+                <h2><?=$previsao[3]["date"]?></h2>
+                <p>Temp. Máx = <?=$previsao[3]["max"]?>°C</p>
+                <p>Temp. Mín = <?=$previsao[3]["min"]?>°C</p>
+                <p><?=$previsao[3]["description"]?></p>
+            </div>
+            <div class="col-2">
+                <h1><?=$previsao[4]["weekday"]?></h1>
+                <h2><?=$previsao[4]["date"]?></h2>
+                <p>Temp. Máx = <?=$previsao[4]["max"]?>°C</p>
+                <p>Temp. Mín = <?=$previsao[4]["min"]?>°C</p>
+                <p><?=$previsao[4]["description"]?></p>
+            </div>
+            <div class="col-2">
+                <h1><?=$previsao[5]["weekday"]?></h1>
+                <h2><?=$previsao[5]["date"]?></h2>
+                <p>Temp. Máx = <?=$previsao[5]["max"]?>°C</p>
+                <p>Temp. Mín = <?=$previsao[5]["min"]?>°C</p>
+                <p><?=$previsao[5]["description"]?></p>
+            </div>
         </div>
     </div>    
 
