@@ -1,7 +1,8 @@
 <?php
     require_once("config/config.php");
     $tempo = new HG_API(HG_API_KEY, WOEID);
-    $tempo->weather_query();
+    $previsao = $tempo->weather_query();
+    print_r($previsao);
 ?>
 <!DOCTYPE html>
 <html lang="en">
