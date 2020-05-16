@@ -19,7 +19,7 @@
                 }
                 $url = substr($url, 0, -1);
                 #A string terá um & a mais no final, a função acima retira ele.
-                $response = @file_get_contents($url); #O @ serve para ignorar caso a url der algum erro.
+                $response = @file_get_contents($url); #O @ serve para ignorar caso der algum erro.
                 $this->error = false;
                 return json_decode($response, true);
             } else {
@@ -27,5 +27,19 @@
                 return false;
             }
         }
+        
+        function is_error (){
+            return $this->error;
+        }
 
+        function weather_query(){
+            $data = $this->request("weather");
+            if (!empty($data) && is_array($data["results"]["forecast"])){
+                $this->error = false;
+                return $data["results"]["forecast"];
+            } else {
+                $this->error = true;
+                return false;
+            }
+        }
     }
