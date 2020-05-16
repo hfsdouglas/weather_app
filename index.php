@@ -10,52 +10,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Previsão do Tempo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <header>Previsão do tempo para Córrego Fundo - MG</header>
-            <div class="col-2">
-                <h1><?=$previsao[0]["weekday"]?></h1>
-                <h2><?=$previsao[0]["date"]?></h2>
-                <p>Temp. Máx = <?=$previsao[0]["max"]?>°C</p>
-                <p>Temp. Mín = <?=$previsao[0]["min"]?>°C</p>
-                <p><?=$previsao[0]["description"]?></p>
+        <div class="row m-2 p-2">
+           <div id="header" class="w-100 text-center">Previsão do tempo para Córrego Fundo - MG</div>
+        </div>
+           <div class="row justify-content-md-center"> 
+                <div class="col-2 m-1 p-3 text-center border-primary rounded bg-primary text-light">
+                    <h1><?=$previsao[0]["weekday"]?> - <?=$previsao[0]["date"]?></h1>
+                    <p>Temp. Máx = <?=$previsao[0]["max"]?>°C</p>
+                    <p>Temp. Mín = <?=$previsao[0]["min"]?>°C</p>
+                    <p><?=$previsao[0]["description"]?></p>
+                </div>
+                <div class="col-2 m-1 p-3 text-center border-secondary rounded bg-secondary text-light">
+                    <h1><?=$previsao[1]["weekday"]?> - <?=$previsao[1]["date"]?></h1>
+                    <p>Temp. Máx = <?=$previsao[1]["max"]?>°C</p>
+                    <p>Temp. Mín = <?=$previsao[1]["min"]?>°C</p>
+                    <p><?=$previsao[1]["description"]?></p>
+                </div>
             </div>
-            <div class="col-2">
-                <h1><?=$previsao[1]["weekday"]?></h1>
-                <h2><?=$previsao[1]["date"]?></h2>
-                <p>Temp. Máx = <?=$previsao[1]["max"]?>°C</p>
-                <p>Temp. Mín = <?=$previsao[1]["min"]?>°C</p>
-                <p><?=$previsao[1]["description"]?></p>
+            <div class="row justify-content-md-center"> 
+                <div class="col-2 m-1 p-3 text-center border-secondary rounded bg-secondary text-light">
+                    <h1><?=$previsao[2]["weekday"]?> - <?=$previsao[2]["date"]?></h1>
+                    <p>Temp. Máx = <?=$previsao[2]["max"]?>°C</p>
+                    <p>Temp. Mín = <?=$previsao[2]["min"]?>°C</p>
+                    <p><?=$previsao[2]["description"]?></p>
+                </div>
+                <div class="col-2 m-1 p-3 text-center border-secondary rounded bg-secondary text-light">
+                    <h1><?=$previsao[3]["weekday"]?> - <?=$previsao[3]["date"]?></h1>
+                    <p>Temp. Máx = <?=$previsao[3]["max"]?>°C</p>
+                    <p>Temp. Mín = <?=$previsao[3]["min"]?>°C</p>
+                    <p><?=$previsao[3]["description"]?></p>
+                </div>
             </div>
-            <div class="col-2">
-                <h1><?=$previsao[2]["weekday"]?></h1>
-                <h2><?=$previsao[2]["date"]?></h2>
-                <p>Temp. Máx = <?=$previsao[2]["max"]?>°C</p>
-                <p>Temp. Mín = <?=$previsao[2]["min"]?>°C</p>
-                <p><?=$previsao[2]["description"]?></p>
-            </div>
-            <div class="col-2">
-                <h1><?=$previsao[3]["weekday"]?></h1>
-                <h2><?=$previsao[3]["date"]?></h2>
-                <p>Temp. Máx = <?=$previsao[3]["max"]?>°C</p>
-                <p>Temp. Mín = <?=$previsao[3]["min"]?>°C</p>
-                <p><?=$previsao[3]["description"]?></p>
-            </div>
-            <div class="col-2">
-                <h1><?=$previsao[4]["weekday"]?></h1>
-                <h2><?=$previsao[4]["date"]?></h2>
-                <p>Temp. Máx = <?=$previsao[4]["max"]?>°C</p>
-                <p>Temp. Mín = <?=$previsao[4]["min"]?>°C</p>
-                <p><?=$previsao[4]["description"]?></p>
-            </div>
-            <div class="col-2">
-                <h1><?=$previsao[5]["weekday"]?></h1>
-                <h2><?=$previsao[5]["date"]?></h2>
-                <p>Temp. Máx = <?=$previsao[5]["max"]?>°C</p>
-                <p>Temp. Mín = <?=$previsao[5]["min"]?>°C</p>
-                <p><?=$previsao[5]["description"]?></p>
+            <div class="row justify-content-md-center"> 
+                <div class="col-2 m-1 p-3 text-center border-secondary rounded bg-secondary text-light">
+                    <h1><?=$previsao[4]["weekday"]?> - <?=$previsao[4]["date"]?></h1>
+                    <p>Temp. Máx = <?=$previsao[4]["max"]?>°C</p>
+                    <p>Temp. Mín = <?=$previsao[4]["min"]?>°C</p>
+                    <p><?=$previsao[4]["description"]?></p>
+                </div>
+                <div class="col-2 m-1 p-3 text-center border-secondary rounded bg-secondary text-light">
+                    <h1><?=$previsao[5]["weekday"]?> - <?=$previsao[5]["date"]?></h1>
+                    <p>Temp. Máx = <?=$previsao[5]["max"]?>°C</p>
+                    <p>Temp. Mín = <?=$previsao[5]["min"]?>°C</p>
+                    <p><?=$previsao[5]["description"]?></p>
+                </div>
             </div>
         </div>
     </div>    

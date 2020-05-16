@@ -1,0 +1,11 @@
+div#header{
+    font-size: 30px;
+}
+div.col-2 > h1{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+div.col-2 > p{
+    font-size: 14px;
+    margin: 1px;
+}
