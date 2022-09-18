@@ -1,7 +1,7 @@
 <?php
     require_once("config/config.php");
     $tempo = new HG_API(HG_API_KEY);
-    $states = new STATES();
+    $location = new Location();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -18,10 +18,12 @@
             <h1>Saiba a previsão do tempo na sua cidade!</h1>
             <form action="weather.php" method="post">
                 <div class="box-1 box-form">
-                    <select name="state" id="">
-                        <?=$states->states()?>
+                    <select name="state" id="states">
+                        <?=$location->states()?>
                     </select>
-                    <input type="text" name="city">
+                    <select name="city" id="cities">
+                        <?=$location->cities()?>
+                    </select>
                 </div>
                 <div class="box-2 box-form">
                     <button type="submit">Pesquisar</button>

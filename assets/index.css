@@ -29,13 +29,13 @@ h1{
 .box-form{
     margin: 10px 10px 0px;
 }
-input{
+#cities{
     width: 78.5%;
     padding: 8px;
 }
 
-select{
-    width: 15%;
+#states{
+    width: 17%;
     padding: 8px;
 }
 
