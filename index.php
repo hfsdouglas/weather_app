@@ -18,10 +18,10 @@
             <h1>Saiba a previsão do tempo na sua cidade!</h1>
             <form action="weather.php" method="post">
                 <div class="box-1 box-form">
-                    <input type="text" name="city">
                     <select name="state" id="">
-                        <?=$states->get_states()?>
+                        <?=$states->states()?>
                     </select>
+                    <input type="text" name="city">
                 </div>
                 <div class="box-2 box-form">
                     <button type="submit">Pesquisar</button>
