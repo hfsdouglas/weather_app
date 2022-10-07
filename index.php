@@ -1,7 +1,8 @@
 <?php
     require_once("config/config.php");
     $tempo = new HG_API(HG_API_KEY);
-    $location = new Location();
+    $states = new STATES();
+    $cities = new CITIES();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,10 +20,10 @@
             <form action="weather.php" method="post">
                 <div class="box-1 box-form">
                     <select name="state" id="states">
-                        <?=$location->states()?>
+                        <?=$states->states()?>
                     </select>
                     <select name="city" id="cities">
-                        <?=$location->cities()?>
+                        <?$cities->cities()?>
                     </select>
                 </div>
                 <div class="box-2 box-form">
@@ -31,6 +32,6 @@
             </form>
         </div>
     </div>
-    
+    <script src="scripts/index.js"></script>
 </body>
 </html>

@@ -1,12 +1,12 @@
 <?php
-    class Location {
-        private $states = [];
+    class CITIES {
         private $cities = [];
-        private $idStateSaved = null;
+        private $id = null;
         private $error  = false;
 
         function __construct() {
-            $this->location_query($start = "states");
+            $this->id = $_REQUEST['q'];
+            var_dump($this->id);
         }
 
         private function url($url, $params) {
@@ -42,12 +42,10 @@
             
         }
         
-        private function location_query($value = "", $id = null) {
+        private function city_query($id = null) {
             $endpoint = "localidades/estados";
-            if (!empty($value) && $value == "states") {
-                $params = ["orderBy"=>"nome"];
-                $this->request($endpoint, $params);
-            } else {
+            if (isset($id)) {
+                $this->id = $id;
                 $endpoint = "localidades/estados/" . $id . "/municipios";
                 $params = ["orderBy"=>"nome"]; 
                 $this->request($endpoint, $params);
@@ -85,7 +83,5 @@
             $this->states = $value;
         }
     }
+
 ?>
-
-                    
-
