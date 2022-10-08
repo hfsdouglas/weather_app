@@ -42,11 +42,7 @@
             $data = $this->getStates();
             if (!empty($data) && is_array($data)) {
                 foreach($data as $key => $value) {
-                    if ($data[$key]["sigla"] == "AC"){
-                        echo "<option value={$data[$key]["id"]} selected>{$data[$key]["sigla"]}</option>";
-                    } else {
-                        echo "<option value={$data[$key]["id"]}>{$data[$key]["sigla"]}</option>";
-                    }
+                    echo "<option id={$data[$key]["id"]} value={$data[$key]["sigla"]}>{$data[$key]["sigla"]}</option>";
                 } 
             }
         }

@@ -15,6 +15,7 @@
             if(!empty($_POST["city"])) $this->city = $_POST["city"];
             if(!empty($_POST["state"])) {
                 $this->state = $_POST["state"];
+                $this->state = strval($this->state);
             } else {
                 $this->error = true;
                 $this->is_error();

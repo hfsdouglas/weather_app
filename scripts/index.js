@@ -1,15 +1,18 @@
+const optionState = document.getElementById('states')
 const formCities = document.getElementById('cities')
-const optionState = document.querySelector('option:checked')
 
-const id = optionState.getAttribute('value')
+function loadCities() {
+    let id = optionState.options[optionState.selectedIndex].id
+    let xhr = new XMLHttpRequest()
 
-console.log(data)
+    xhr.onload = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(id);
+            formCities.innerHTML = xhr.responseText
+        }
+    }
 
-let ajax = new XMLHttpRequest()
-
-ajax.onreadystatechange = event => {
-    formCities.innerHTML = ajax.responseText
+    xhr.open('GET', "class/STATE_ID.php?q=" + id)
+    xhr.send()
 }
 
-ajax.open('GET', 'class/CITIES.php?q='+id, true)
-ajax.send()

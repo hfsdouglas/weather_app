@@ -4,9 +4,9 @@
         private $id = null;
         private $error  = false;
 
-        function __construct() {
-            $this->id = $_REQUEST['q'];
-            var_dump($this->id);
+        function __construct($id_value) {
+            $this->setID($id_value);
+            $this->city_query();
         }
 
         private function url($url, $params) {
@@ -19,67 +19,47 @@
 
         private function request($endpoint = "", $params = "") {
             $url = "https://servicodados.ibge.gov.br/api/v1/".$endpoint;
-            echo(strlen($endpoint));
-            if (strlen($endpoint) == 19) {
-                if (!empty($params)){
-                    $url = $this->url($url, $params);
-                    $response = @file_get_contents($url);
-                    return $this->setStates(json_decode($response, true));
-                } else {
-                    $response = @file_get_contents($url);
-                    return $this->setStates(json_decode($response, true));
-                }
+            if (!empty($params)){
+                $url = $this->url($url, $params);
+                $response = @file_get_contents($url);
+                return $this->setCities(json_decode($response, true));
             } else {
-                if (!empty($params)){
-                    $url = $this->url($url, $params);
-                    $response = @file_get_contents($url);
-                    return $this->setCities(json_decode($response, true));
-                } else {
-                    $response = @file_get_contents($url);
-                    return $this->setCities(json_decode($response, true));
-                }
-            }         
-            
+                $response = @file_get_contents($url);
+                return $this->setCities(json_decode($response, true));
+            }        
         }
         
-        private function city_query($id = null) {
+        private function city_query() {
             $endpoint = "localidades/estados";
-            if (isset($id)) {
-                $this->id = $id;
-                $endpoint = "localidades/estados/" . $id . "/municipios";
+            if (isset($this->id)) {
+                $endpoint = "localidades/estados/" . $this->id . "/municipios";
                 $params = ["orderBy"=>"nome"]; 
                 $this->request($endpoint, $params);
             }
         }
 
-        public function states() {
-            $data = $this->getStates();
-            var_dump($data);
+        public function cities() {
+            $data = $this->getCities();
             if (!empty($data) && is_array($data)) {
                 foreach($data as $key => $value) {
-                    if ($data[$key]["sigla"] == "AC"){
-                        echo "<option value={$data[$key]["nome"]} selected>{$data[$key]["sigla"]}</option>";
-                    } else {
-                        echo "<option value={$data[$key]["nome"]}>{$data[$key]["sigla"]}</option>";
-                    }
+                    echo "<option>{$data[$key]["nome"]}</option>";
                 } 
             }
         }
 
-        public function cities() {
-            $id = "";
-            $data = "";
+        private function setID ($value) {
+            $this->id = $value;
         }
 
         private function is_error() {
             return $this->error;
         }
 
-        public function getStates() {
+        public function getCities() {
             return $this->states;
         }
         
-        public function setStates($value) {
+        public function setCities($value) {
             $this->states = $value;
         }
     }
