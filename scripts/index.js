@@ -19,13 +19,13 @@ fetch(url_estados).then(response => {
 });
 
 estados_select.addEventListener('change', event => {
+    cidades_select.disabled = true;
+    cidades_select.innerHTML = `<option selected><i>Selecione uma Cidade</i></option>`;
     let estados = document.querySelectorAll('.estado');
     estados.forEach(estado => {
         if (estado.value === event.target.value) {
             let url_cidades = `service/cidades/?id=${estado.id}`;
-            console.log(url_cidades);
             fetch(url_cidades).then(response => {
-                console.log(response);
                 response.json().then(cidades => {
                     cidades.map(cidade => {
                         let option = document.createElement("option");
